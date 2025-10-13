@@ -1,0 +1,13 @@
+
+
+.about-me{
+    background-color: whitesmoke;   
+    
+}
+
+
+.about-me p{
+    margin: 0 auto;
+    padding: 1rem 2.5rem;
+    text-align: justify;
+}
