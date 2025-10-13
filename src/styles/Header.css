@@ -75,8 +75,7 @@
 
 /* Medium screens (tablets) */
 @media (max-width: 900px) {
-  body{
-  }
+
   .container {
     padding: 1.5rem;
   }
