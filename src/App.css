@@ -2,6 +2,16 @@ html {
   scroll-behavior: smooth;
 }
 
+.header-section,
+.about-me,
+ .skills,
+ .contact,
+ .grid-item {
+  background-color: #e1e1e1;
+  color: black;
+  border-color: #cccccc;
+}
+
 /* === Base Reset === */
 * {
   margin: 0;

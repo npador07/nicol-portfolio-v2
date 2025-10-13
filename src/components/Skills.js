@@ -1,10 +1,9 @@
 import '../styles/Skills.css';
 function Skills() {
     return (
-        <div id="container">
+        <div className="container">
             <section id="skills" className="skills">
             <h2>Tech Stack</h2>
-            <div className="container">
                 <div className="skills-list">
                     <ul>
                         <li>
@@ -21,8 +20,8 @@ function Skills() {
                         </li>
                     </ul>
                 </div>
-            </div>
-            </section>
+            
+                </section>
         </div>
        
         
