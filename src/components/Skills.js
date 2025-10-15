@@ -2,8 +2,9 @@ import '../styles/Skills.css';
 function Skills() {
     return (
         <div className="container">
-            <section id="skills" className="skills">
             <h2>Tech Stack</h2>
+            <section id="skills" className="skills">
+            
                 <div className="skills-list">
                     <ul>
                         <li>

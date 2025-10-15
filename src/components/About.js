@@ -2,9 +2,11 @@ import '../styles/About.css';
 function About() {
     return(
         <div className="container">
-            <section id="about-me" className="about-me">
-            <div>
             <h2>About Me</h2>
+            <section id="about-me" className="about-me">
+                
+            <div>
+            
             <p>I am a graduate of Bachelor of Science in Information Technology (BSIT) 
                 from Western Institute of Technology in Iloilo City, Philippines, class of 2019. 
                 With a strong interest in web development, I have enhanced my skills by 
