@@ -10,7 +10,7 @@ function Projects() {
   const [jsProjects, setJsProjects] = useState([]);
 
   useEffect(() => {
-    async function fetchProjects(path = `public/projects`) {
+    async function fetchProjects(path = `docs/projects`) {
       let results = [];
       try {
         // Fetch folder contents from GitHub API
@@ -43,7 +43,8 @@ function Projects() {
         const projectName = parts[parts.length - 2];
 
         // GitHub Pages URL for users to open
-        const projectLink = `https://npador07.github.io/${repo}/${projectPath.replace("public/", "")}`;
+        const projectLink = `https://npador07.github.io/${repo}/${projectPath.replace("docs/", "")}`;
+
 
         // Raw GitHub URL for fetching HTML safely
         const rawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/master/${projectPath}`;
