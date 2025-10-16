@@ -43,7 +43,11 @@ function Projects() {
         const projectName = parts[parts.length - 2];
 
         // GitHub Pages URL for users to open
-        const projectLink = `https://npador07.github.io/${repo}/${projectPath.replace("docs/", "")}`;
+        const projectLink = encodeURI(
+  `https://npador07.github.io/${repo}/${projectPath
+    .replace("docs/", "")
+    .replace("/index.html", "")}`
+);
 
 
         // Raw GitHub URL for fetching HTML safely
