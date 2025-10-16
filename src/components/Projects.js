@@ -13,10 +13,11 @@ function Projects() {
     async function fetchProjects(path = `public/projects`) {
       let results = [];
       try {
+        // Fetch folder contents from GitHub API
         const response = await fetch(`${getProjectsUrl}${path}`);
         if (!response.ok) throw new Error(`Error: ${response.status}`);
-
         const data = await response.json();
+
         for (const item of data) {
           if (item.type === "dir") {
             const subResults = await fetchProjects(item.path);
@@ -40,18 +41,27 @@ function Projects() {
       for (const projectPath of allProjects) {
         const parts = projectPath.split("/");
         const projectName = parts[parts.length - 2];
-        const projectLink = `https://npador07.github.io/nicol-portfolio-v2/${projectPath.replace("public/", "")}`;
 
+        // GitHub Pages URL for users to open
+        const projectLink = `https://npador07.github.io/${repo}/${projectPath.replace("public/", "")}`;
+
+        // Raw GitHub URL for fetching HTML safely
+        const rawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/master/${projectPath}`;
 
         let description = "";
         try {
-          const response = await fetch(projectLink);
-          const htmlText = await response.text();
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(htmlText, "text/html");
-          const meta = doc.querySelector('meta[name="description"]');
-          if (meta) description = meta.getAttribute("content");
+          const rawResponse = await fetch(rawUrl);
+          if (rawResponse.ok) {
+            const htmlText = await rawResponse.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlText, "text/html");
+            const meta = doc.querySelector('meta[name="description"]');
+            description = meta ? meta.getAttribute("content") : `A project titled ${projectName}`;
+          } else {
+            description = `A project titled ${projectName}`;
+          }
         } catch {
+          description = `A project titled ${projectName}`;
           console.warn(`No description found for ${projectName}`);
         }
 
@@ -82,7 +92,7 @@ function Projects() {
               {htmlProjects.map((proj, idx) => (
                 <a key={idx} href={proj.link} className="grid-item" target="_blank" rel="noopener noreferrer">
                   <h3>{proj.name}</h3>
-                  <p>{proj.description || "No description available."}</p>
+                  <p>{proj.description}</p>
                 </a>
               ))}
             </div>
@@ -94,7 +104,7 @@ function Projects() {
               {jsProjects.map((proj, idx) => (
                 <a key={idx} href={proj.link} className="grid-item" target="_blank" rel="noopener noreferrer">
                   <h3>{proj.name}</h3>
-                  <p>{proj.description || "No description available."}</p>
+                  <p>{proj.description}</p>
                 </a>
               ))}
             </div>
