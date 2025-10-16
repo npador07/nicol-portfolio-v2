@@ -8,6 +8,8 @@ function Projects() {
 
   const [htmlProjects, setHtmlProjects] = useState([]);
   const [jsProjects, setJsProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     async function fetchProjects(path = `docs/projects`) {
@@ -81,6 +83,8 @@ function Projects() {
 
       setHtmlProjects(htmlList);
       setJsProjects(jsList);
+
+        setLoading(false);
     }
 
     loadProjects();
@@ -90,6 +94,12 @@ function Projects() {
     <div className="container">
       <section id="projects" className="projects">
         <h2>Projects</h2>
+         {loading ? (
+        <div className="loader-container">
+          <div className="spinner"></div>
+          <p>Loading projects...</p>
+        </div>
+      ) : (
         <div className="grid-section">
           <details open>
             <summary id="summaryLabelHTML">HTML and CSS (Responsive Web Design)</summary>
@@ -114,7 +124,9 @@ function Projects() {
               ))}
             </div>
           </details>
+         
         </div>
+          )}
       </section>
     </div>
   );
