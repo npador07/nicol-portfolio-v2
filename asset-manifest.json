@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/nicol-portfolio-v2/static/css/main.a749367f.css",
+    "main.js": "/nicol-portfolio-v2/static/js/main.2658f730.js",
+    "static/js/453.47456b6e.chunk.js": "/nicol-portfolio-v2/static/js/453.47456b6e.chunk.js",
+    "index.html": "/nicol-portfolio-v2/index.html",
+    "main.a749367f.css.map": "/nicol-portfolio-v2/static/css/main.a749367f.css.map",
+    "main.2658f730.js.map": "/nicol-portfolio-v2/static/js/main.2658f730.js.map",
+    "453.47456b6e.chunk.js.map": "/nicol-portfolio-v2/static/js/453.47456b6e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a749367f.css",
+    "static/js/main.2658f730.js"
+  ]
+}
