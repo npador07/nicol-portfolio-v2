@@ -1,0 +1,86 @@
+
+
+/* === Container === */
+.container {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+#intro-div p{
+  margin-top: 10px;
+}
+
+
+/* === Profile Image === */
+#profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;    /* Circular shape */
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  
+}
+
+#profile-pic:hover {
+  transform: scale(1.05);
+}
+
+/* === Header Section === */
+.header-div {
+  margin-top: 1.5rem;
+}
+
+/* === Header Buttons === */
+.header-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 40px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 2rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.header-btn:hover {
+  color: #0077cc;
+  transform: translateY(-2px);
+}
+
+/* === Responsive Design === */
+
+/* Small screens (phones) */
+@media (max-width: 600px) {
+  body {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  #profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+
+  .header-btn {
+    display: block;
+    margin: 0.5rem 0;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 900px) {
+
+  .container {
+    padding: 1.5rem;
+  }
+
+  #profile-pic {     
+    width: 130px;
+    height: 130px;
+  }
+ 
+}

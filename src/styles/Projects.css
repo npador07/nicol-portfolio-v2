@@ -1,0 +1,87 @@
+.projects h2{
+    margin-top: -10px;
+}
+details {
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+  height: fit-content;
+}
+
+summary {
+  display: block;      
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.grid-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 20px;
+  padding: 20px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 2fr)); 
+  gap: 1rem;
+  padding: 1rem; 
+  width: 100%;   
+  box-sizing: border-box;
+}
+
+
+.grid-item {
+  border: 2px solid #ccc;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #222;
+  min-height: 200px;
+}    
+.grid-item h3{
+    font-size: larger;
+}
+
+.grid-item:visited,.grid-item:hover,.grid-item:active{
+    text-decoration: none;
+    color: #222;
+
+}
+
+
+.grid-item p{
+    font-size: smaller;
+}
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid #ddd;
+  border-top: 5px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/*think of other features to add*/
+.loader-container p {
+  margin-top: 12px;
+  color: #666;
+  font-size: 1rem;
+}
