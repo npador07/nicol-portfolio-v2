@@ -34,7 +34,7 @@ function Projects() {
       return results;
     }
 
-    async function loadProjects() {
+    async function loadProjects() { 
       const allProjects = await fetchProjects();
 
       const htmlList = [];
@@ -45,7 +45,7 @@ function Projects() {
         const projectName = parts[parts.length - 2];
 
         // GitHub Pages URL for users to open
-        const projectLink = `https://htmlpreview.github.io/?https://github.com/${owner}/${repo}/blob/master/${projectPath}`;
+        const projectLink = 0;
         
         /*const projectLink = encodeURI(
   `https://npador07.github.io/${repo}/${projectPath
@@ -55,7 +55,8 @@ function Projects() {
 
 
         // Raw GitHub URL for fetching HTML safely
-        const rawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/master/${projectPath}`;
+        const rawUrl = `https://${owner}.github.io/${repo}/${projectPath}`;
+;
 
         let description = "";
         try {
