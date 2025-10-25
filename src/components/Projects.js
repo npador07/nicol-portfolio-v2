@@ -12,27 +12,27 @@ function Projects() {
 
 
   useEffect(() => {
-    async function fetchProjects(path = `docs/projects`) {
-      let results = [];
-      try {
-        // Fetch folder contents from GitHub API
-        const response = await fetch(`${getProjectsUrl}${path}`);
-        if (!response.ok) throw new Error(`Error: ${response.status}`);
-        const data = await response.json();
+    async function fetchProjects(path = "docs/projects") {
+  let results = [];
+  try {
+    console.log("Fetching path:", path);
+    const response = await fetch(`${getProjectsUrl}${path}`);
+    if (!response.ok) throw new Error(`Error: ${response.status}`);
+    const data = await response.json();
 
-        for (const item of data) {
-          if (item.type === "dir") {
-            const subResults = await fetchProjects(item.path);
-            if (Array.isArray(subResults)) results = results.concat(subResults);
-          } else if (item.name.toLowerCase() === "index.html") {
-            results.push(item.path);
-          }
-        }
-      } catch (error) {
-        console.error("Fetch failed:", error);
+    for (const item of data) {
+      if (item.type === "dir" && item.path !== path) {
+        const subResults = await fetchProjects(item.path);
+        if (Array.isArray(subResults)) results = results.concat(subResults);
+      } else if (item.name.toLowerCase() === "index.html") {
+        results.push(item.path);
       }
-      return results;
     }
+  } catch (error) {
+    console.error("Fetch failed:", error);
+  }
+  return results;
+}
 
     async function loadProjects() { 
       const allProjects = await fetchProjects();
@@ -45,11 +45,8 @@ function Projects() {
         const projectName = parts[parts.length - 2];
 
         // GitHub Pages URL for users to open
-        const projectLink = encodeURI(
-  `https://${owner}.github.io/${repo}/${projectPath
-    .replace("docs/", "")
-    .replace("/index.html", "")}`
-);
+       const category = parts[parts.length - 3]; // category folder
+const projectLink = `/projects/${category}/${projectName}/index.html`;
         
         /*const projectLink = encodeURI(
   `https://npador07.github.io/${repo}/${projectPath
