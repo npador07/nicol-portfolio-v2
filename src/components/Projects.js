@@ -134,5 +134,4 @@ const projectLink = `/projects/${category}/${projectName}/index.html`;
     </div>
   );
 }
-
 export default Projects;
