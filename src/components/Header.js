@@ -4,7 +4,12 @@ function Header(){
       
         <div className="container">
              <section id="header-section" className="header-section"> 
-   <img id="profile-pic" className="profile-pic" src="images/profile.jpg" alt="Nicol Pador"/>  
+   <img
+   id="profile-pic"
+  className="profile-pic"
+  src={`${process.env.PUBLIC_URL}/images/profile.jpg`}
+  alt="Nicol Pador"
+/>  
    
             <div id="intro-div" className="intro-div">
                 <h1>Hi! I'm Nicol</h1>
