@@ -12,7 +12,7 @@ function Projects() {
 
 
   useEffect(() => {
-    async function fetchProjects(path = "docs/projects") {
+    async function fetchProjects(path = "public/projects") {
   let results = [];
   try {
     console.log("Fetching path:", path);
@@ -46,13 +46,10 @@ function Projects() {
 
         // GitHub Pages URL for users to open
        const category = parts[parts.length - 3]; // category folder
-const projectLink = `/projects/${category}/${projectName}/index.html`;
-        
-        /*const projectLink = encodeURI(
-  `https://npador07.github.io/${repo}/${projectPath
-    .replace("docs/", "")
-    .replace("/index.html", "")}`
-);*/ //for other option
+const projectLink = encodeURI(
+  `https://npador07.github.io/${repo}/projects/${category}/${projectName}/index.html`
+);     
+      //for other option
 
 
         // Raw GitHub URL for fetching HTML safely
@@ -134,4 +131,5 @@ const projectLink = `/projects/${category}/${projectName}/index.html`;
     </div>
   );
 }
-export default Projects;
+
+export default Projects;  
